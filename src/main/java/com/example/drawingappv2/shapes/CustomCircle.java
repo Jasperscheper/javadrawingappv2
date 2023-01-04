@@ -1,5 +1,6 @@
 package com.example.drawingappv2.shapes;
 
+import com.example.drawingappv2.interfaces.ICustomShape;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape;
 

@@ -1,9 +1,12 @@
 package com.example.drawingappv2.shapes;
 
+import com.example.drawingappv2.interfaces.ICustomShape;
+import com.example.drawingappv2.interfaces.IDraggableShape;
+import com.example.drawingappv2.interfaces.ISelectableShape;
 import javafx.scene.Cursor;
 import javafx.scene.shape.Shape;
 
-public class DraggableShape extends SelectableShape {
+public abstract class DraggableShape extends SelectableShape implements ISelectableShape, ICustomShape {
 
     DragController dragController;
     boolean isDraggable;
@@ -14,7 +17,7 @@ public class DraggableShape extends SelectableShape {
     }
 
     @Override
-    Shape getShape() {
+    public Shape getShape() {
         return this.shape;
     }
 

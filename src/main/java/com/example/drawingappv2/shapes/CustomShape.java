@@ -15,6 +15,6 @@ public abstract class CustomShape implements ICustomShape {
         this.shape.setFill(this.shapeColor);
     }
 
-    abstract Shape getShape();
+    public abstract Shape getShape();
 
 }

@@ -1,9 +1,10 @@
 package com.example.drawingappv2.shapes;
 
+import com.example.drawingappv2.interfaces.ISelectableShape;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
 
-public class SelectableShape extends CustomShape {
+public abstract class SelectableShape extends CustomShape implements ISelectableShape {
 
     public Boolean isSelected;
     public Color selectedColor = Color.RED;
@@ -20,7 +21,7 @@ public class SelectableShape extends CustomShape {
         return isSelected;
     }
 
-    public void setSelected(Boolean selected) {
+    public void setSelected(boolean selected) {
         this.isSelected = selected;
         this.setSelectedStyling();
     }
@@ -42,7 +43,7 @@ public class SelectableShape extends CustomShape {
     }
 
     @Override
-    Shape getShape() {
+    public Shape getShape() {
         return this.shape;
     }
 }

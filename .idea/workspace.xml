@@ -5,31 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b434f82-71e7-4b14-b880-cc2ae1e315c3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/ApplicationWindow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/DrawingPane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/HelloApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/interfaces/ICustomShape.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/CustomCircle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/CustomShape.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/DragController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/DraggableShape.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/ResizableShape.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/ResizeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/SelectableShape.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/SelectionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/drawingappv2/hello-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/interfaces/IDraggableShape.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/interfaces/IResizableShape.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/interfaces/ISelectableShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/interfaces/ICustomShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/interfaces/ICustomShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/CustomCircle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/CustomCircle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/CustomShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/CustomShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/DraggableShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/DraggableShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/ResizableShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/ResizableShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/SelectableShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/SelectableShape.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,8 +24,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>

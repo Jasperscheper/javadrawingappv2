@@ -1,12 +1,12 @@
 package com.example.drawingappv2.shapes;
 
+import com.example.drawingappv2.interfaces.IResizableShape;
 import javafx.scene.Cursor;
 import javafx.scene.shape.Shape;
 
-public abstract class ResizableShape extends DraggableShape {
+public abstract class ResizableShape extends DraggableShape implements IResizableShape {
 
     ResizeController resizeController;
-    boolean isDraggable;
 
     ResizableShape(Shape shape) {
         super(shape);
@@ -14,7 +14,7 @@ public abstract class ResizableShape extends DraggableShape {
     }
 
     @Override
-    Shape getShape() {
+    public Shape getShape() {
         return this.shape;
     }
 
@@ -24,6 +24,6 @@ public abstract class ResizableShape extends DraggableShape {
 
     abstract double getHeight();
     abstract double getWidth();
-    abstract void setHeight(double height);
+    public abstract void setHeight(double height);
 }
 
