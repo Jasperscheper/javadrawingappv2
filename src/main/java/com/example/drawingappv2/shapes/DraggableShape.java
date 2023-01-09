@@ -1,19 +1,19 @@
 package com.example.drawingappv2.shapes;
 
 import com.example.drawingappv2.interfaces.ICustomShape;
-import com.example.drawingappv2.interfaces.IDraggableShape;
+import com.example.drawingappv2.interfaces.IDragController;
 import com.example.drawingappv2.interfaces.ISelectableShape;
 import javafx.scene.Cursor;
 import javafx.scene.shape.Shape;
 
 public abstract class DraggableShape extends SelectableShape implements ISelectableShape, ICustomShape {
 
-    DragController dragController;
+    IDragController dragController;
     boolean isDraggable;
 
     DraggableShape(Shape shape){
         super(shape);
-        dragController = new DragController(this);
+        dragController = new DragController(this, false);
     }
 
     @Override
@@ -26,7 +26,9 @@ public abstract class DraggableShape extends SelectableShape implements ISelecta
     }
 
     public void toggleDraggable() {
+        System.out.println("Shape toggled draggable");
         this.setDraggable(!this.isDraggable);
+        this.dragController.toggleDraggable();
 
         if(this.isDraggable()){
             this.getShape().setCursor(Cursor.MOVE);

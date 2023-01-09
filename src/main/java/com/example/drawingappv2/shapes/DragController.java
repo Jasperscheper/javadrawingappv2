@@ -1,47 +1,109 @@
 package com.example.drawingappv2.shapes;
 
+import com.example.drawingappv2.actions.MoveShapeCommand;
+import com.example.drawingappv2.actions.ShapeOperationExecutor;
+import com.example.drawingappv2.interfaces.IDragController;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.event.EventHandler;
+import javafx.scene.Cursor;
 import javafx.scene.input.MouseEvent;
 
-public class DragController {
+public class DragController implements IDragController {
 
-    private DraggableShape shape;
-    private boolean isDraggable;
+    final DraggableShape target;
+    SimpleBooleanProperty isDraggable;
 
-    private double initialMouseX;
-    private double initialMouseY;
+    double anchorX;
+    double anchorY;
+    final int ACTIVE = 1;
+    final int INACTIVE = 0;
+    int cycleStatus = INACTIVE;
 
-    public DragController(DraggableShape shape){
-        this(shape, false);
+    EventHandler<MouseEvent> setAnchor;
+    EventHandler<MouseEvent> updatePositionOnDrag;
+    EventHandler<MouseEvent> commitPositionOnRelease;
+
+
+
+    public boolean isDraggable() {
+        return this.isDraggable.get();
     }
 
-    public DragController(DraggableShape shape, boolean isDraggable){
-        this.shape = shape;
-        this.isDraggable = isDraggable;
-        this.addHandlers();
+    public DragController(DraggableShape target, boolean isDraggable) {
+        this.target = target;
+        addHandlers();
+        this.createDraggableProperty();
+        this.setDraggable(isDraggable);
+
     }
 
-    private void addHandlers() {
+    public void toggleDraggable() {
+        this.setDraggable(!this.isDraggable());
 
-        this.shape.getShape().addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent event) -> {
-            System.out.println("Clicked");
-            this.shape.toggleDraggable();
-            this.initialMouseX = event.getSceneX();
-            this.initialMouseY = event.getSceneY();
+        if(this.isDraggable()){
+            this.target.getShape().setCursor(Cursor.MOVE);
+        } else {
+            this.target.getShape().setCursor(Cursor.DEFAULT);
+        }
+    }
+
+    public void addHandlers() {
+
+        this.target.getShape().addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent event) -> {
+            // add shape click draggable
+            this.target.toggleDraggable();
         });
 
-        this.shape.getShape().addEventHandler(MouseEvent.MOUSE_DRAGGED, (MouseEvent event) -> {
-            System.out.println("Clicked");
-            if(this.shape.isDraggable()){
-                System.out.println("Item is draggable");
+        setAnchor = event -> {
+            if (event.isPrimaryButtonDown()) {
+                System.out.println("Clicked shape");
+                cycleStatus = ACTIVE;
+                anchorX = event.getSceneX();
+                anchorY = event.getSceneY();
+            }
 
-                double newSceneX = event.getSceneX() - initialMouseX;
-                double newSceneY = event.getSceneY() - initialMouseY;
+            if (event.isSecondaryButtonDown()) {
+                cycleStatus = INACTIVE;
+                target.getShape().setTranslateX(0);
+                target.getShape().setTranslateY(0);
+            }
+        };
 
-                // set the new scene position
-                this.shape.getShape().setLayoutX(newSceneX);
-                this.shape.getShape().setLayoutY(newSceneY);
+        updatePositionOnDrag = event -> {
+            if (cycleStatus != INACTIVE) {
+                target.getShape().setTranslateX(event.getSceneX() - anchorX);
+                target.getShape().setTranslateY(event.getSceneY() - anchorY);
+            }
+        };
+
+        commitPositionOnRelease = event -> {
+            if (cycleStatus != INACTIVE) {
+                try {
+                    ShapeOperationExecutor.getInstance().executeOperation(new MoveShapeCommand(target, event));
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        };
+    }
+
+    public void createDraggableProperty() {
+        this.isDraggable = new SimpleBooleanProperty();
+        isDraggable.addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                target.getShape().addEventFilter(MouseEvent.MOUSE_PRESSED, setAnchor);
+                target.getShape().addEventFilter(MouseEvent.MOUSE_DRAGGED, updatePositionOnDrag);
+                target.getShape().addEventFilter(MouseEvent.MOUSE_RELEASED, commitPositionOnRelease);
+            } else {
+                target.getShape().removeEventFilter(MouseEvent.MOUSE_PRESSED, setAnchor);
+                target.getShape().removeEventFilter(MouseEvent.MOUSE_DRAGGED, updatePositionOnDrag);
+                target.getShape().removeEventFilter(MouseEvent.MOUSE_RELEASED, commitPositionOnRelease);
             }
         });
+    }
+
+    public void setDraggable(Boolean val){
+        this.isDraggable.set(val);
     }
 
 }

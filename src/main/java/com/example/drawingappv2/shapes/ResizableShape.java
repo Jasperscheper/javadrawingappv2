@@ -22,8 +22,8 @@ public abstract class ResizableShape extends DraggableShape implements IResizabl
         return !this.isSelected();
     }
 
-    abstract double getHeight();
+    public abstract double getHeight();
     abstract double getWidth();
     public abstract void setHeight(double height);
-}
 
+}

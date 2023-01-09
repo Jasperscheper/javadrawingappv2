@@ -5,16 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b434f82-71e7-4b14-b880-cc2ae1e315c3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/interfaces/IDraggableShape.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/interfaces/IResizableShape.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/interfaces/ISelectableShape.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/DrawingPaneKeyboardController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/actions/AddShapeCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/actions/CreateGroupCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/actions/MoveGroupCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/actions/MoveShapeCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/actions/OpenTextFileOperation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/actions/ResizeShapeCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/actions/SaveToFileOperation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/actions/ShapeOperationExecutor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/actions/TextFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/actions/interfaces/Command.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/interfaces/IDragController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/interfaces/ICustomShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/interfaces/ICustomShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/DrawingPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/DrawingPane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/CustomCircle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/CustomCircle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/CustomShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/CustomShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/DragController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/DragController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/DraggableShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/DraggableShape.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/ResizableShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/ResizableShape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/SelectableShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/SelectableShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/ResizeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/ResizeController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +33,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -48,16 +57,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/jasper/IdeaProjects/drawingappv2/src/main/java/com/example/drawingappv2&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.drawingappv2.actions" />
       <recent name="com.example.drawingappv2" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/example/drawingappv2" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.example.drawingappv2.shapes" />
