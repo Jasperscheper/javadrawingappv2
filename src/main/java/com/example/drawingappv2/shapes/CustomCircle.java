@@ -1,4 +1,6 @@
 package com.example.drawingappv2.shapes;
+import javafx.geometry.Point2D;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape;
 
@@ -26,5 +28,19 @@ public class CustomCircle extends ResizableShape {
     @Override
     public void setHeight(double height) {
         this.getShape().setRadius(height /2 );
+    }
+    @Override
+    public void setWidth(double width) {
+        this.getShape().setRadius(width /2 );
+    }
+
+    @Override
+    public double calculateWidth(MouseEvent event, Point2D originalLocation){
+        return this.getShape().getRadius() + event.getSceneY() - originalLocation.getY();
+    };
+
+    @Override
+    public double calculateHeight(MouseEvent event, Point2D originalLocation){
+        return this.getShape().getRadius() + event.getSceneY() - originalLocation.getY();
     }
 }

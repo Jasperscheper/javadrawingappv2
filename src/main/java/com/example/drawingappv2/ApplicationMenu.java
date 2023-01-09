@@ -30,17 +30,16 @@ public class ApplicationMenu {
         shapes.getItems().add(ellipse);
         this.menuBar.getMenus().add(shapes);
 
-//        EventHandler<ActionEvent> shapeEvent = e -> {
-//            System.out.println(((MenuItem)e.getSource()).getText());
-//            ApplicationSettings.getInstance().setKey("shapeType", ((MenuItem) e.getSource()).getText());
-//        };
+        EventHandler<ActionEvent> shapeEvent = e -> {
+            System.out.println(((MenuItem)e.getSource()).getText());
+            ApplicationSettings.getInstance().setKey("shapeType", ((MenuItem) e.getSource()).getText());
+        };
         // add event
-//        circle.setOnAction(shapeEvent);
-//        rectangle.setOnAction(shapeEvent);
-//        ellipse.setOnAction(shapeEvent);
+        circle.setOnAction(shapeEvent);
+        rectangle.setOnAction(shapeEvent);
+        ellipse.setOnAction(shapeEvent);
 
         Menu fileOperations = new Menu("File IO");
-
         MenuItem openFile = new MenuItem("Open file");
         MenuItem saveFile = new MenuItem("Save to file");
 
@@ -49,6 +48,7 @@ public class ApplicationMenu {
 
         EventHandler<ActionEvent> saveEvent = e -> {
             try {
+
 //                ShapeOperationExecutor.getInstance().executeOperation(new SaveToFileOperation());
             } catch (Exception ex) {
                 throw new RuntimeException(ex);

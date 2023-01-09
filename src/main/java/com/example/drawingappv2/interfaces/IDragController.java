@@ -1,8 +1,11 @@
 package com.example.drawingappv2.interfaces;
 
+import javafx.beans.property.SimpleBooleanProperty;
+
 public interface IDragController {
 
     void addHandlers();
-    void toggleDraggable();
+//    void toggleDraggable();
+    SimpleBooleanProperty isDraggable = null;
 
 }

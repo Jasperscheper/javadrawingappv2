@@ -11,7 +11,7 @@ import javafx.scene.input.MouseEvent;
 public class DragController implements IDragController {
 
     final DraggableShape target;
-    SimpleBooleanProperty isDraggable;
+
 
     double anchorX;
     double anchorY;
@@ -26,26 +26,25 @@ public class DragController implements IDragController {
 
 
     public boolean isDraggable() {
-        return this.isDraggable.get();
+        return this.target.isDraggable.get();
     }
 
-    public DragController(DraggableShape target, boolean isDraggable) {
+    public DragController(DraggableShape target) {
         this.target = target;
         addHandlers();
         this.createDraggableProperty();
-        this.setDraggable(isDraggable);
 
     }
 
-    public void toggleDraggable() {
-        this.setDraggable(!this.isDraggable());
-
-        if(this.isDraggable()){
-            this.target.getShape().setCursor(Cursor.MOVE);
-        } else {
-            this.target.getShape().setCursor(Cursor.DEFAULT);
-        }
-    }
+//    public void toggleDraggable() {
+//        this.setDraggable(!this.isDraggable());
+//
+//        if(this.isDraggable()){
+//            this.target.getShape().setCursor(Cursor.MOVE);
+//        } else {
+//            this.target.getShape().setCursor(Cursor.DEFAULT);
+//        }
+//    }
 
     public void addHandlers() {
 
@@ -88,8 +87,7 @@ public class DragController implements IDragController {
     }
 
     public void createDraggableProperty() {
-        this.isDraggable = new SimpleBooleanProperty();
-        isDraggable.addListener((observable, oldValue, newValue) -> {
+        this.target.isDraggable.addListener((observable, oldValue, newValue) -> {
             if (newValue) {
                 target.getShape().addEventFilter(MouseEvent.MOUSE_PRESSED, setAnchor);
                 target.getShape().addEventFilter(MouseEvent.MOUSE_DRAGGED, updatePositionOnDrag);
@@ -103,7 +101,7 @@ public class DragController implements IDragController {
     }
 
     public void setDraggable(Boolean val){
-        this.isDraggable.set(val);
+        this.target.isDraggable.set(val);
     }
 
 }

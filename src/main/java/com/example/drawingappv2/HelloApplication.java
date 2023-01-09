@@ -18,8 +18,8 @@ public class HelloApplication extends Application {
 
         Scene drawingScene = new Scene(DrawingPane.getInstance());
         drawingScene.getRoot().requestFocus();
-//        drawingScene.getRoot().setTranslateX(drawingScene.getWidth() / 2);
-//        drawingScene.getRoot().setTranslateY(drawingScene.getHeight() / 2);
+        drawingScene.getRoot().setTranslateX(drawingScene.getWidth() / 2);
+        drawingScene.getRoot().setTranslateY(drawingScene.getHeight() / 2);
         VBox vbox = new VBox();
         vbox.getChildren().add(new ApplicationMenu().getMenuBar());
         DrawingPane.getInstance().getChildren().add(vbox);

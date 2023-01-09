@@ -2,6 +2,7 @@ package com.example.drawingappv2.actions;
 
 import com.example.drawingappv2.DrawingPane;
 import com.example.drawingappv2.actions.interfaces.Command;
+import com.example.drawingappv2.helpers.AddedShapeHelper;
 import com.example.drawingappv2.shapes.CustomShape;
 
 public class AddShapeCommand implements Command {
@@ -13,19 +14,18 @@ public class AddShapeCommand implements Command {
 
     @Override
     public void undo() {
+        AddedShapeHelper.getInstance().removeShape(this.shape);
         DrawingPane.getInstance().getChildren().remove(this.shape.getShape());
     }
 
     public void redo() {
-        DrawingPane.getInstance().getChildren().add(this.shape.getShape());
+        this.execute();
     }
 
     @Override
     public String execute() {
-//        AddedShapeHelper.getInstance().add(shape);
-        System.out.println("Placing shape");
+        AddedShapeHelper.getInstance().addShape(shape);
         DrawingPane.getInstance().getChildren().add(shape.getShape());
-        System.out.println(DrawingPane.getInstance().getChildren().size());
         return null;
     }
 }

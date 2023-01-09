@@ -2,21 +2,23 @@ package com.example.drawingappv2.actions;
 
 import com.example.drawingappv2.actions.interfaces.Command;
 import com.example.drawingappv2.shapes.ResizableShape;
-import javafx.scene.input.MouseEvent;
+import javafx.geometry.Point2D;
 
 public class ResizeShapeCommand implements Command {
 
     ResizableShape target;
-    MouseEvent event;
+    double newHeight;
+    double newWidth;
 
     double originalX;
     double originalY;
 
     double originalHeight;
 
-    public ResizeShapeCommand(ResizableShape target, MouseEvent event){
+    public ResizeShapeCommand(ResizableShape target, double height, double width){
         this.target = target;
-        this.event = event;
+        this.newHeight = height;
+        this.newWidth = width;
     }
 
     @Override
@@ -24,14 +26,10 @@ public class ResizeShapeCommand implements Command {
         //commit changes to LayoutX and LayoutY
         this.originalX = target.getShape().getLayoutX();
         this.originalY = target.getShape().getLayoutY();
-
         this.originalHeight = target.getHeight();
 
-        double dx = event.getX() - originalX;
-        double dy = event.getY() - originalY;
-        double newRadius = Math.sqrt(dx * dx + dy * dy) + target.getHeight();
-        newRadius = Math.max(newRadius, 0.0);
-        this.target.setHeight(newRadius);
+        this.target.setHeight(newHeight);
+        this.target.setWidth(newWidth);
 
         return "";
     }
