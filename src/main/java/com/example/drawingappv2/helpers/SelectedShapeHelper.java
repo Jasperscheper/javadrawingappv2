@@ -4,11 +4,11 @@ import com.example.drawingappv2.shapes.CustomShape;
 
 import java.util.ArrayList;
 
-public class AddedShapeHelper {
+public class SelectedShapeHelper implements IShapeHelper{
 
-     private ArrayList<CustomShape> addedShapes = new ArrayList<CustomShape>();
+    ArrayList<CustomShape> selectedShapes = new ArrayList<CustomShape>();
 
-     static AddedShapeHelper INSTANCE;
+    public static AddedShapeHelper INSTANCE;
 
     public static AddedShapeHelper getInstance() {
 
@@ -19,14 +19,14 @@ public class AddedShapeHelper {
     }
 
     public void addShape(CustomShape shape) {
-        addedShapes.add(shape);
+        selectedShapes.add(shape);
     }
 
     public void removeShape(CustomShape shape){
-        addedShapes.remove(shape);
+        selectedShapes.remove(shape);
     }
 
     public ArrayList<CustomShape> getShapes(){
-        return this.addedShapes;
+        return this.selectedShapes;
     }
 }

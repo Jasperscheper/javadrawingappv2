@@ -1,5 +1,6 @@
 package com.example.drawingappv2.shapes;
 
+import com.example.drawingappv2.helpers.SelectedShapeHelper;
 import com.example.drawingappv2.interfaces.ISelectableShape;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
@@ -30,7 +31,10 @@ public abstract class SelectableShape extends CustomShape implements ISelectable
         this.setSelected(!this.isSelected());
 
         if(this.isSelected()){
+            SelectedShapeHelper.getInstance().addShape(this);
             this.getShape().toFront();
+        } else {
+            SelectedShapeHelper.getInstance().removeShape(this);
         }
     }
 

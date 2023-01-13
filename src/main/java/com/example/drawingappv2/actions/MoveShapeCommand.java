@@ -1,16 +1,17 @@
 package com.example.drawingappv2.actions;
 import com.example.drawingappv2.actions.interfaces.Command;
 import com.example.drawingappv2.shapes.CustomShape;
+import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 public class MoveShapeCommand implements Command {
 
-    CustomShape target;
+    Node target;
     MouseEvent event;
 
     double originalX;
     double originalY;
 
-    public MoveShapeCommand(CustomShape target, MouseEvent event){
+    public MoveShapeCommand(Node target, MouseEvent event){
         this.target = target;
         this.event = event;
     }
@@ -18,21 +19,21 @@ public class MoveShapeCommand implements Command {
     @Override
     public String execute() {
         //commit changes to LayoutX and LayoutY
-        this.originalX = target.getShape().getLayoutX();
-        this.originalY = target.getShape().getLayoutY();
-        target.getShape().setLayoutX(event.getSceneX() - event.getX());
-        target.getShape().setLayoutY(event.getSceneY() - event.getY());
+        this.originalX = target.getLayoutX();
+        this.originalY = target.getLayoutY();
+        target.setLayoutX(event.getSceneX() - event.getX());
+        target.setLayoutY(event.getSceneY() - event.getY());
 
         //clear changes from TranslateX and TranslateY
-        target.getShape().setTranslateX(0);
-        target.getShape().setTranslateY(0);
+        target.setTranslateX(0);
+        target.setTranslateY(0);
         return "";
     }
 
     @Override
     public void undo() {
-        target.getShape().setLayoutX(this.originalX);
-        target.getShape().setLayoutY(this.originalY);
+        target.setLayoutX(this.originalX);
+        target.setLayoutY(this.originalY);
     }
 
     public void redo(){

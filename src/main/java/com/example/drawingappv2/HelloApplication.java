@@ -1,5 +1,6 @@
 package com.example.drawingappv2;
 
+import com.example.drawingappv2.shapes.DraggableShape;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -24,6 +25,7 @@ public class HelloApplication extends Application {
         vbox.getChildren().add(new ApplicationMenu().getMenuBar());
         DrawingPane.getInstance().getChildren().add(vbox);
         window.setScene(drawingScene);
+        DrawingPane.getInstance().test();
 
 //        ShapeOperationExecutor.getInstance().executeOperation(new OpenTextFileOperation("src/instructions.txt"));
         window.show();

@@ -6,12 +6,14 @@ import com.example.drawingappv2.interfaces.IDragController;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.event.EventHandler;
 import javafx.scene.Cursor;
+import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 
 public class DragController implements IDragController {
 
-    final DraggableShape target;
+    final Node target;
 
+    SimpleBooleanProperty isDraggable = new SimpleBooleanProperty();
 
     double anchorX;
     double anchorY;
@@ -24,34 +26,19 @@ public class DragController implements IDragController {
     EventHandler<MouseEvent> commitPositionOnRelease;
 
 
-
-    public boolean isDraggable() {
-        return this.target.isDraggable.get();
-    }
-
-    public DragController(DraggableShape target) {
+    public DragController(Node target) {
         this.target = target;
         addHandlers();
         this.createDraggableProperty();
-
     }
 
-//    public void toggleDraggable() {
-//        this.setDraggable(!this.isDraggable());
-//
-//        if(this.isDraggable()){
-//            this.target.getShape().setCursor(Cursor.MOVE);
-//        } else {
-//            this.target.getShape().setCursor(Cursor.DEFAULT);
-//        }
-//    }
+    public DragController(Node target, Boolean isDraggable){
+        this(target);
+        this.setDraggable(true);
+    }
+
 
     public void addHandlers() {
-
-        this.target.getShape().addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent event) -> {
-            // add shape click draggable
-            this.target.toggleDraggable();
-        });
 
         setAnchor = event -> {
             if (event.isPrimaryButtonDown()) {
@@ -63,15 +50,15 @@ public class DragController implements IDragController {
 
             if (event.isSecondaryButtonDown()) {
                 cycleStatus = INACTIVE;
-                target.getShape().setTranslateX(0);
-                target.getShape().setTranslateY(0);
+                target.setTranslateX(0);
+                target.setTranslateY(0);
             }
         };
 
         updatePositionOnDrag = event -> {
             if (cycleStatus != INACTIVE) {
-                target.getShape().setTranslateX(event.getSceneX() - anchorX);
-                target.getShape().setTranslateY(event.getSceneY() - anchorY);
+                target.setTranslateX(event.getSceneX() - anchorX);
+                target.setTranslateY(event.getSceneY() - anchorY);
             }
         };
 
@@ -87,21 +74,25 @@ public class DragController implements IDragController {
     }
 
     public void createDraggableProperty() {
-        this.target.isDraggable.addListener((observable, oldValue, newValue) -> {
+        this.isDraggable.addListener((observable, oldValue, newValue) -> {
             if (newValue) {
-                target.getShape().addEventFilter(MouseEvent.MOUSE_PRESSED, setAnchor);
-                target.getShape().addEventFilter(MouseEvent.MOUSE_DRAGGED, updatePositionOnDrag);
-                target.getShape().addEventFilter(MouseEvent.MOUSE_RELEASED, commitPositionOnRelease);
+                target.addEventFilter(MouseEvent.MOUSE_PRESSED, setAnchor);
+                target.addEventFilter(MouseEvent.MOUSE_DRAGGED, updatePositionOnDrag);
+                target.addEventFilter(MouseEvent.MOUSE_RELEASED, commitPositionOnRelease);
             } else {
-                target.getShape().removeEventFilter(MouseEvent.MOUSE_PRESSED, setAnchor);
-                target.getShape().removeEventFilter(MouseEvent.MOUSE_DRAGGED, updatePositionOnDrag);
-                target.getShape().removeEventFilter(MouseEvent.MOUSE_RELEASED, commitPositionOnRelease);
+                target.removeEventFilter(MouseEvent.MOUSE_PRESSED, setAnchor);
+                target.removeEventFilter(MouseEvent.MOUSE_DRAGGED, updatePositionOnDrag);
+                target.removeEventFilter(MouseEvent.MOUSE_RELEASED, commitPositionOnRelease);
             }
         });
     }
 
     public void setDraggable(Boolean val){
-        this.target.isDraggable.set(val);
+        this.isDraggable.set(val);
+    }
+    public Boolean isDraggable(){
+        System.out.println("setting isDraggable to" + this.isDraggable.get());
+        return this.isDraggable.get();
     }
 
 }

@@ -5,6 +5,7 @@ import com.example.drawingappv2.interfaces.IDragController;
 import com.example.drawingappv2.interfaces.ISelectableShape;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.scene.Cursor;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Shape;
 
 public abstract class DraggableShape extends SelectableShape implements ISelectableShape, ICustomShape {
@@ -14,8 +15,9 @@ public abstract class DraggableShape extends SelectableShape implements ISelecta
 
     DraggableShape(Shape shape){
         super(shape);
-        dragController = new DragController(this);
-        this.isDraggable.set(false);
+        dragController = new DragController(this.getShape());
+        this.getShape().addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent event) -> this.toggleDraggable());
+        this.dragController.setDraggable(false);
     }
 
     @Override
@@ -23,22 +25,17 @@ public abstract class DraggableShape extends SelectableShape implements ISelecta
         return this.shape;
     }
 
-    public boolean isDraggable() {
-        return this.isDraggable.get();
+    public Boolean isDraggable() {
+        return this.dragController.isDraggable();
     }
 
     public void toggleDraggable() {
-        System.out.println("Shape toggled draggable");
-        this.setDraggable(!this.isDraggable.get());
+        this.dragController.setDraggable(!this.isDraggable());
 
         if(this.isDraggable()){
             this.getShape().setCursor(Cursor.MOVE);
         } else {
             this.getShape().setCursor(Cursor.DEFAULT);
         }
-    }
-
-    public void setDraggable(boolean draggable) {
-        isDraggable.set(draggable);
     }
 }

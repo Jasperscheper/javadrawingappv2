@@ -7,5 +7,7 @@ public interface IDragController {
     void addHandlers();
 //    void toggleDraggable();
     SimpleBooleanProperty isDraggable = null;
+    void setDraggable(Boolean value);
 
+    Boolean isDraggable();
 }
