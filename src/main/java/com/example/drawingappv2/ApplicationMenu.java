@@ -1,5 +1,7 @@
 package com.example.drawingappv2;
 
+import com.example.drawingappv2.actions.SaveToFileOperation;
+import com.example.drawingappv2.actions.ShapeOperationExecutor;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Menu;
@@ -34,6 +36,7 @@ public class ApplicationMenu {
             System.out.println(((MenuItem)e.getSource()).getText());
             ApplicationSettings.getInstance().setKey("shapeType", ((MenuItem) e.getSource()).getText());
         };
+
         // add event
         circle.setOnAction(shapeEvent);
         rectangle.setOnAction(shapeEvent);
@@ -49,7 +52,7 @@ public class ApplicationMenu {
         EventHandler<ActionEvent> saveEvent = e -> {
             try {
 
-//                ShapeOperationExecutor.getInstance().executeOperation(new SaveToFileOperation());
+                ShapeOperationExecutor.getInstance().executeOperation(new SaveToFileOperation());
             } catch (Exception ex) {
                 throw new RuntimeException(ex);
             }

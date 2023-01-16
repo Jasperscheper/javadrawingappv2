@@ -1,13 +1,13 @@
 package com.example.drawingappv2;
 import com.example.drawingappv2.actions.AddShapeCommand;
+import com.example.drawingappv2.actions.CreateGroupCommand;
 import com.example.drawingappv2.actions.ShapeOperationExecutor;
 import com.example.drawingappv2.helpers.AddedShapeHelper;
 import com.example.drawingappv2.helpers.SelectedShapeHelper;
 import com.example.drawingappv2.shapes.*;
 import javafx.event.EventHandler;
-import javafx.geometry.Bounds;
-import javafx.geometry.Insets;
 import javafx.geometry.Point2D;
+import javafx.scene.Cursor;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.input.KeyCode;
@@ -20,7 +20,6 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 
 public class DrawingPane extends Pane {
@@ -62,8 +61,8 @@ public class DrawingPane extends Pane {
 
     private Boolean canPlaceShape(Point2D location) {
 
-        for (CustomShape child : AddedShapeHelper.getInstance().getShapes()) {
-            if (child.getShape().contains(location)) {
+        for (Node child : AddedShapeHelper.getInstance().getShapes()) {
+            if (child.contains(location)) {
                 return false;
             }
         }
@@ -87,21 +86,6 @@ public class DrawingPane extends Pane {
         };
     }
 
-    public void test(){
-        System.out.println("Creating group");
-        Group group = new Group();
-
-        Rectangle rectangle = new Rectangle(50, 50, 100, 100);
-        rectangle.setFill(Color.RED);
-        Circle circle = new Circle(150, 150, 50);
-        circle.setFill(Color.RED);
-
-        group.getChildren().addAll(rectangle, circle);
-        DragController controller = new DragController(group, true);
-
-        DrawingPane.getInstance().getChildren().add(group);
-    }
-
     public EventHandler<KeyEvent> handleGroupButton() {
         return new EventHandler<KeyEvent>() {
             @Override
@@ -109,16 +93,11 @@ public class DrawingPane extends Pane {
                 if(keyEvent.getCode() == KeyCode.G){
                     System.out.println("Creating group");
 
-                    ArrayList<Node> nodes = new ArrayList<>();
-
-                   for(CustomShape shape : SelectedShapeHelper.getInstance().getShapes()){
-
-                       DrawingPane.getInstance().getChildren().remove(shape);
-                       nodes.add(shape.getShape());
-                   }
-
-                    ShapeGroup group = new ShapeGroup(nodes);
-                    DrawingPane.getInstance().getChildren().add(group);
+                    try {
+                        ShapeOperationExecutor.getInstance().executeOperation(new CreateGroupCommand(SelectedShapeHelper.getInstance().getShapes()));
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
                 }
             }
         };

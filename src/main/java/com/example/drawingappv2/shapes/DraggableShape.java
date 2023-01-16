@@ -38,4 +38,8 @@ public abstract class DraggableShape extends SelectableShape implements ISelecta
             this.getShape().setCursor(Cursor.DEFAULT);
         }
     }
+
+    public void freeze() {
+        this.dragController.setDraggable(false);
+    }
 }

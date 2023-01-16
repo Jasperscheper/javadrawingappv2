@@ -14,7 +14,7 @@ public class AddShapeCommand implements Command {
 
     @Override
     public void undo() {
-        AddedShapeHelper.getInstance().removeShape(this.shape);
+        AddedShapeHelper.getInstance().removeShape(this.shape.getShape());
         DrawingPane.getInstance().getChildren().remove(this.shape.getShape());
     }
 
@@ -24,7 +24,7 @@ public class AddShapeCommand implements Command {
 
     @Override
     public String execute() {
-        AddedShapeHelper.getInstance().addShape(shape);
+        AddedShapeHelper.getInstance().addShape(shape.getShape());
         DrawingPane.getInstance().getChildren().add(shape.getShape());
         return null;
     }

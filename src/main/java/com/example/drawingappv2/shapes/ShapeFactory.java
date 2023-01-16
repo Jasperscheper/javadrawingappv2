@@ -50,13 +50,6 @@ public final class ShapeFactory{
                             parseY(shapeDescription),
                             parseWidth(shapeDescription) / 2
                     ));
-//            case "ellipse" -> new ResizableEllipse(
-//                    new Ellipse(
-//                            parseX(shapeDescription),
-//                            parseY(shapeDescription),
-//                            parseDouble(ApplicationSettings.getInstance().getKey("ellipseRadius")),
-//                            parseDouble(ApplicationSettings.getInstance().getKey("ellipseRadius"))
-//                    ));
             default -> throw new IllegalStateException("Unexpected value");
         };
     }

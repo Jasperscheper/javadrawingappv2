@@ -22,9 +22,8 @@ public final class ApplicationSettings {
 
     public static HashMap<String, String> applicationShapes = new HashMap<String, String>() {{
         put("ShapeGroup", "group");
-        put("ResizableCircle", "circle");
-        put("MoveableCircle", "circle");
-        put("MoveableCircle", "circle");
+        put("Circle", "circle");
+        put("Rectangle", "rectangle");
     }};
 
     public static CustomShape selectedShape;

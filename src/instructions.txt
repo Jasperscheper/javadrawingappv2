@@ -1,0 +1,5 @@
+ group 4
+     circle 477 187 25 25
+     circle 177 398 25 25
+     circle 261 417 25 25
+     circle 164 429 60 60

@@ -1,6 +1,7 @@
 package com.example.drawingappv2;
 
-import com.example.drawingappv2.shapes.DraggableShape;
+import com.example.drawingappv2.actions.OpenTextFileOperation;
+import com.example.drawingappv2.actions.ShapeOperationExecutor;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -11,7 +12,7 @@ import java.io.IOException;
 
 public class HelloApplication extends Application {
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws Exception {
 
         ApplicationWindow window = new ApplicationWindow();
         window.setSize(700);
@@ -25,9 +26,8 @@ public class HelloApplication extends Application {
         vbox.getChildren().add(new ApplicationMenu().getMenuBar());
         DrawingPane.getInstance().getChildren().add(vbox);
         window.setScene(drawingScene);
-        DrawingPane.getInstance().test();
 
-//        ShapeOperationExecutor.getInstance().executeOperation(new OpenTextFileOperation("src/instructions.txt"));
+        ShapeOperationExecutor.getInstance().executeOperation(new OpenTextFileOperation("src/instructions.txt"));
         window.show();
     }
 

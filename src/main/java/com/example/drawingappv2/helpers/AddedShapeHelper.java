@@ -1,12 +1,13 @@
 package com.example.drawingappv2.helpers;
 
 import com.example.drawingappv2.shapes.CustomShape;
+import javafx.scene.Node;
 
 import java.util.ArrayList;
 
 public class AddedShapeHelper {
 
-     private ArrayList<CustomShape> addedShapes = new ArrayList<CustomShape>();
+     private ArrayList<Node> addedShapes = new ArrayList<Node>();
 
      static AddedShapeHelper INSTANCE;
 
@@ -18,15 +19,15 @@ public class AddedShapeHelper {
         return INSTANCE;
     }
 
-    public void addShape(CustomShape shape) {
+    public void addShape(Node shape) {
         addedShapes.add(shape);
     }
 
-    public void removeShape(CustomShape shape){
+    public void removeShape(Node shape){
         addedShapes.remove(shape);
     }
 
-    public ArrayList<CustomShape> getShapes(){
+    public ArrayList<Node> getShapes(){
         return this.addedShapes;
     }
 }

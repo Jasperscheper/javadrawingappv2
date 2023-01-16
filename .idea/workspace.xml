@@ -5,17 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b434f82-71e7-4b14-b880-cc2ae1e315c3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/helpers/IShapeHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/helpers/SelectedShapeHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/instructions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/helpers/ShapeHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/ApplicationMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/ApplicationMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/ApplicationSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/ApplicationSettings.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/DrawingPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/DrawingPane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/actions/MoveShapeCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/actions/MoveShapeCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/actions/AddShapeCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/actions/AddShapeCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/actions/CreateGroupCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/actions/CreateGroupCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/actions/OpenTextFileOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/actions/OpenTextFileOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/actions/SaveToFileOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/actions/SaveToFileOperation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/helpers/AddedShapeHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/helpers/AddedShapeHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/interfaces/IDragController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/interfaces/IDragController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/DragController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/DragController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/DraggableShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/DraggableShape.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/SelectableShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/SelectableShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/ShapeFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/ShapeFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/ShapeGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/drawingappv2/shapes/ShapeGroup.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,8 +30,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -50,16 +54,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/jasper/IdeaProjects/drawingappv2/src/main/java/com/example/drawingappv2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "/home/jasper/IdeaProjects/drawingappv2/src/main/java/com/example/drawingappv2",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.drawingappv2.helpers" />
       <recent name="com.example.drawingappv2.actions" />
       <recent name="com.example.drawingappv2" />
     </key>
@@ -101,5 +107,25 @@
       <updated>1672856198567</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/drawingappv2/actions/SaveToFileOperation.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/drawingappv2/actions/SaveToFileOperation.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
